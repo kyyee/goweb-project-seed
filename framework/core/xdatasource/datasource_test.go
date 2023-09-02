@@ -14,7 +14,7 @@ func TestNewPostgres(t *testing.T) {
 		Host:         "localhost",
 		Port:         5432,
 		DbName:       "gps",
-		MaxIdleCount: 10,
+		MaxIdleConns: 10,
 		MaxOpenConns: 5,
 	})
 	assert.Nil(t, err)
@@ -31,7 +31,7 @@ func TestNewMariadb(t *testing.T) {
 		Password:     "123456",
 		Host:         "localhost:3306",
 		DbName:       "gps",
-		MaxIdleCount: 10,
+		MaxIdleConns: 10,
 		MaxOpenConns: 5,
 	})
 	assert.Nil(t, err)

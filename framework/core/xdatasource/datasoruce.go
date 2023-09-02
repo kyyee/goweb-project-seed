@@ -21,7 +21,7 @@ func NewPostgres(c *Config) (*gorm.DB, error) {
 	if err != nil {
 		return nil, xerrors.NewAssignCodeError(xerrors.DATA_SOURCE_ERROR)
 	}
-	s.SetMaxIdleConns(c.MaxIdleCount)
+	s.SetMaxIdleConns(c.MaxIdleConns)
 	s.SetMaxOpenConns(c.MaxOpenConns)
 	if c.Debug {
 		return db.Debug(), nil
@@ -40,7 +40,7 @@ func NewMariadb(c *Config) (*gorm.DB, error) {
 	if err != nil {
 		return nil, xerrors.NewAssignCodeError(xerrors.DATA_SOURCE_ERROR)
 	}
-	s.SetMaxIdleConns(c.MaxIdleCount)
+	s.SetMaxIdleConns(c.MaxIdleConns)
 	s.SetMaxOpenConns(c.MaxOpenConns)
 	if c.Debug {
 		return db.Debug(), nil
