@@ -39,7 +39,7 @@ func Debug(c *Config) gin.HandlerFunc {
 			body := b.String()
 			log.Printf(fmt.Sprintf("%s %s %s %s %s %s %s X-Forwarded-For: [%s], request.header: [%s], request.body: [%s]",
 				utils.Green("[xgin request]"),
-				utils.Red(fmt.Sprintf("[%vms]", float64(cost.Microseconds())/1000)),
+				utils.Red(utils.TimeToMicroSecondStr(cost)),
 				utils.Yellow(strings.Split(ctx.Request.RemoteAddr, ":")[0]),
 				utils.Green(ctx.Request.Method),
 				utils.Blue(ctx.Request.Host),
