@@ -5,6 +5,7 @@ import (
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
+	"goweb-project-seed/framework/core/xerrors"
 	"strings"
 )
 
@@ -66,7 +67,7 @@ func (j FirstJasypt) Encrypt(plainText string) (string, error) {
 	//1. generate salt
 	salt, err := generateSalt(8)
 	if err != nil {
-		return "", fmt.Errorf("Jasypt error for generate salt: %s \n", err)
+		return "", xerrors.NewAssignCodeAndCauseError("Jasypt error for generate salt", err)
 	}
 	//2. appen padding str
 	plainText = appendPadding(plainText, 8)
